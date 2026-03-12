@@ -1,0 +1,277 @@
+{
+  "categories": [
+    {
+      "id": "cat_1",
+      "name": "Парикмахерская",
+      "slug": "hair"
+    },
+    {
+      "id": "cat_2",
+      "name": "Ногтевой сервис",
+      "slug": "nails"
+    },
+    {
+      "id": "cat_3",
+      "name": "Брови и ресницы",
+      "slug": "brows"
+    },
+    {
+      "id": "cat_4",
+      "name": "Косметология",
+      "slug": "face"
+    },
+    {
+      "id": "cat_5",
+      "name": "Массаж",
+      "slug": "massage"
+    }
+  ],
+  "services": [
+    {
+      "id": "srv_1",
+      "name": "Стрижка женская",
+      "description": "Стрижка любой сложности",
+      "price": 1500,
+      "duration": 60,
+      "categoryId": "cat_1"
+    },
+    {
+      "id": "srv_2",
+      "name": "Стрижка мужская",
+      "description": "Стрижка машинкой и ножницами",
+      "price": 800,
+      "duration": 30,
+      "categoryId": "cat_1"
+    },
+    {
+      "id": "srv_3",
+      "name": "Окрашивание волос",
+      "description": "Полное окрашивание",
+      "price": 3000,
+      "duration": 120,
+      "categoryId": "cat_1"
+    },
+    {
+      "id": "srv_4",
+      "name": "Melir / мелирование",
+      "description": "Мелирование волос",
+      "price": 2500,
+      "duration": 90,
+      "categoryId": "cat_1"
+    },
+    {
+      "id": "srv_5",
+      "name": "Укладка",
+      "description": "Укладка феном",
+      "price": 1000,
+      "duration": 45,
+      "categoryId": "cat_1"
+    },
+    {
+      "id": "srv_6",
+      "name": "Наращивание волос",
+      "description": "Наращивание на капсулах",
+      "price": 5000,
+      "duration": 180,
+      "categoryId": "cat_1"
+    },
+    {
+      "id": "srv_7",
+      "name": "Маникюр классический",
+      "description": "Обрезной маникюр",
+      "price": 700,
+      "duration": 40,
+      "categoryId": "cat_2"
+    },
+    {
+      "id": "srv_8",
+      "name": "Маникюр аппаратный",
+      "description": "Аппаратный маникюр",
+      "price": 800,
+      "duration": 40,
+      "categoryId": "cat_2"
+    },
+    {
+      "id": "srv_9",
+      "name": "Покрытие гель-лак",
+      "description": "Покрытие + дизайн",
+      "price": 1200,
+      "duration": 60,
+      "categoryId": "cat_2"
+    },
+    {
+      "id": "srv_10",
+      "name": "Наращивание ногтей",
+      "description": "Наращивание гелем",
+      "price": 2000,
+      "duration": 90,
+      "categoryId": "cat_2"
+    },
+    {
+      "id": "srv_11",
+      "name": "Педикюр",
+      "description": "Комплексный педикюр",
+      "price": 1500,
+      "duration": 60,
+      "categoryId": "cat_2"
+    },
+    {
+      "id": "srv_12",
+      "name": "Снятие покрытия",
+      "description": "Снятие гель-лака",
+      "price": 300,
+      "duration": 15,
+      "categoryId": "cat_2"
+    },
+    {
+      "id": "srv_13",
+      "name": "Коррекция бровей",
+      "description": "Коррекция пинцетом",
+      "price": 500,
+      "duration": 20,
+      "categoryId": "cat_3"
+    },
+    {
+      "id": "srv_14",
+      "name": "Окрашивание бровей",
+      "description": "Хна или краска",
+      "price": 600,
+      "duration": 25,
+      "categoryId": "cat_3"
+    },
+    {
+      "id": "srv_15",
+      "name": "Ламинирование бровей",
+      "description": "Укладка и ламинирование",
+      "price": 1200,
+      "duration": 45,
+      "categoryId": "cat_3"
+    },
+    {
+      "id": "srv_16",
+      "name": "Наращивание ресниц",
+      "description": "Наращивание классика",
+      "price": 1500,
+      "duration": 90,
+      "categoryId": "cat_3"
+    },
+    {
+      "id": "srv_17",
+      "name": "Ламинирование ресниц",
+      "description": "Ламинирование и ботокс",
+      "price": 1800,
+      "duration": 60,
+      "categoryId": "cat_3"
+    },
+    {
+      "id": "srv_18",
+      "name": "Чистка лица",
+      "description": "Ультразвуковая чистка",
+      "price": 2000,
+      "duration": 60,
+      "categoryId": "cat_4"
+    },
+    {
+      "id": "srv_19",
+      "name": "Массаж лица",
+      "description": "Массаж лица и шеи",
+      "price": 1500,
+      "duration": 45,
+      "categoryId": "cat_4"
+    },
+    {
+      "id": "srv_20",
+      "name": "Пилинг",
+      "description": "Химический пилинг",
+      "price": 2500,
+      "duration": 45,
+      "categoryId": "cat_4"
+    },
+    {
+      "id": "srv_21",
+      "name": "Уход за лицом",
+      "description": "Комплексный уход",
+      "price": 3000,
+      "duration": 75,
+      "categoryId": "cat_4"
+    },
+    {
+      "id": "srv_22",
+      "name": "Микроигольчатый RF-лифтинг",
+      "description": "Омоложение",
+      "price": 4500,
+      "duration": 90,
+      "categoryId": "cat_4"
+    },
+    {
+      "id": "srv_23",
+      "name": "Массаж классический",
+      "description": "Общий массаж 60 мин",
+      "price": 1800,
+      "duration": 60,
+      "categoryId": "cat_5"
+    },
+    {
+      "id": "srv_24",
+      "name": "Массаж антицеллюлитный",
+      "description": "Антицеллюлитный массаж",
+      "price": 2000,
+      "duration": 45,
+      "categoryId": "cat_5"
+    },
+    {
+      "id": "srv_25",
+      "name": "Массаж спины",
+      "description": "Массаж спины и шеи",
+      "price": 1200,
+      "duration": 45,
+      "categoryId": "cat_5"
+    },
+    {
+      "id": "srv_26",
+      "name": "Лимфодренажный массаж",
+      "description": "Лимфодренаж",
+      "price": 2200,
+      "duration": 60,
+      "categoryId": "cat_5"
+    },
+    {
+      "id": "srv_27",
+      "name": "Спортивный массаж",
+      "description": "Спортивный массаж",
+      "price": 2000,
+      "duration": 60,
+      "categoryId": "cat_5"
+    }
+  ],
+  "masters": [
+    {
+      "id": "mst_1",
+      "name": "Анна Петрова",
+      "specialty": "Парикмахер-стилист",
+      "bio": "Стаж 10 лет. Специалист по окрашиванию и сложным стрижкам.",
+      "photo": "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "mst_2",
+      "name": "Мария Иванова",
+      "specialty": "Мастер маникюра",
+      "bio": "Мастер ногтевого сервиса с 7-летним стажем.",
+      "photo": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "mst_3",
+      "name": "Елена Соколова",
+      "specialty": "Косметолог",
+      "bio": "Дипломированный косметолог, специалист по чисткам и уходу.",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+    },
+    {
+      "id": "mst_4",
+      "name": "Дмитрий Козлов",
+      "specialty": "Массажист",
+      "bio": "Спортивный массаж, лимфодренаж, антицеллюлитный массаж.",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    }
+  ]
+}
