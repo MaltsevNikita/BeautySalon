@@ -1,11 +1,16 @@
 import fs from 'fs'
 import path from 'path'
 
+const isVercel = !!process.env.VERCEL
+
 const DB_PATH = path.resolve(process.cwd(), 'data', 'db.json')
 const APPOINTMENTS_PATH = path.resolve(process.cwd(), 'data', 'appointments.json')
 
+let cachedDB: any = null
+let inMemoryAppointments: Appointment[] = []
+
+console.log('Running on Vercel:', isVercel)
 console.log('DB_PATH:', DB_PATH)
-console.log('File exists:', fs.existsSync(DB_PATH))
 
 export interface Category {
   id: string
@@ -52,8 +57,11 @@ interface DB {
 
 function readDB(): DB {
   try {
-    const data = fs.readFileSync(DB_PATH, 'utf-8')
-    return JSON.parse(data)
+    if (!cachedDB) {
+      const data = fs.readFileSync(DB_PATH, 'utf-8')
+      cachedDB = JSON.parse(data)
+    }
+    return cachedDB
   } catch (e) {
     console.error('Error reading db.json:', e)
     return { categories: [], services: [], masters: [] }
@@ -61,6 +69,9 @@ function readDB(): DB {
 }
 
 function readAppointments(): Appointment[] {
+  if (isVercel) {
+    return inMemoryAppointments
+  }
   try {
     const data = fs.readFileSync(APPOINTMENTS_PATH, 'utf-8')
     return JSON.parse(data)
@@ -71,11 +82,19 @@ function readAppointments(): Appointment[] {
 }
 
 function writeAppointments(appointments: Appointment[]): void {
-  fs.writeFileSync(APPOINTMENTS_PATH, JSON.stringify(appointments, null, 2), 'utf-8')
+  if (isVercel) {
+    inMemoryAppointments = appointments
+    console.log('Using in-memory storage on Vercel')
+    return
+  }
+  try {
+    fs.writeFileSync(APPOINTMENTS_PATH, JSON.stringify(appointments, null, 2), 'utf-8')
+  } catch (e) {
+    console.error('Error writing appointments.json:', e)
+  }
 }
 
 export const db = {
-  // Categories
   categories: {
     findMany: async () => {
       const data = readDB()
@@ -87,7 +106,6 @@ export const db = {
     },
   },
 
-  // Services
   services: {
     findMany: async (options?: { 
       where?: { categoryId?: string }
@@ -125,7 +143,6 @@ export const db = {
     },
   },
 
-  // Masters
   masters: {
     findMany: async (options?: { take?: number }) => {
       const data = readDB()
@@ -141,7 +158,6 @@ export const db = {
     },
   },
 
-  // Appointments (отдельный файл)
   appointments: {
     create: async (data: Omit<Appointment, 'id' | 'createdAt' | 'updatedAt'>) => {
       const appointments = readAppointments()
