@@ -4,6 +4,9 @@ import path from 'path'
 const DB_PATH = path.resolve(process.cwd(), 'data', 'db.json')
 const APPOINTMENTS_PATH = path.resolve(process.cwd(), 'data', 'appointments.json')
 
+console.log('DB_PATH:', DB_PATH)
+console.log('File exists:', fs.existsSync(DB_PATH))
+
 export interface Category {
   id: string
   name: string
@@ -48,13 +51,23 @@ interface DB {
 }
 
 function readDB(): DB {
-  const data = fs.readFileSync(DB_PATH, 'utf-8')
-  return JSON.parse(data)
+  try {
+    const data = fs.readFileSync(DB_PATH, 'utf-8')
+    return JSON.parse(data)
+  } catch (e) {
+    console.error('Error reading db.json:', e)
+    return { categories: [], services: [], masters: [] }
+  }
 }
 
 function readAppointments(): Appointment[] {
-  const data = fs.readFileSync(APPOINTMENTS_PATH, 'utf-8')
-  return JSON.parse(data)
+  try {
+    const data = fs.readFileSync(APPOINTMENTS_PATH, 'utf-8')
+    return JSON.parse(data)
+  } catch (e) {
+    console.error('Error reading appointments.json:', e)
+    return []
+  }
 }
 
 function writeAppointments(appointments: Appointment[]): void {
