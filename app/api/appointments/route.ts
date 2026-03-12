@@ -75,6 +75,10 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { serviceId, masterId, clientPhone, date, time } = body
 
+    console.log('POST body:', body)
+    console.log('TELEGRAM_BOT_TOKEN:', !!TELEGRAM_BOT_TOKEN)
+    console.log('TELEGRAM_ADMIN_ID:', !!TELEGRAM_ADMIN_ID)
+
     if (!clientPhone) {
       return NextResponse.json(
         { error: 'Введите номер телефона' },
@@ -84,6 +88,8 @@ export async function POST(request: NextRequest) {
 
     const service = serviceId ? await db.services.findUnique({ id: serviceId }) : null
     const master = masterId ? await db.masters.findUnique({ id: masterId }) : null
+
+    console.log('Creating appointment...')
 
     const appointment = await db.appointments.create({
       serviceId: serviceId || '',
@@ -95,6 +101,8 @@ export async function POST(request: NextRequest) {
       clientTelegramId: null,
       notes: null,
     })
+
+    console.log('Appointment created:', appointment.id)
 
     const message = `🔔 Новая заявка!\n\n` +
       `Телефон: ${clientPhone}\n` +
