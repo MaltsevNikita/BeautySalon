@@ -22,6 +22,14 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${geistSans.variable} antialiased min-h-screen flex flex-col`}>
+        <div className="fixed inset-0 -z-10">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/beauty-bg.jpg')" }}
+          />
+          <div className="absolute inset-0 backdrop-blur-[50%]" />
+          <div className="absolute inset-0 bg-background/50" />
+        </div>
         <Header />
         <main className="flex-1">
           {children}
